@@ -42,6 +42,7 @@ router.post("/login", (req, res) => {
       error: "Invalid information",
     });
   }
+  login(res, username, password);
 });
 
 function validate(username, password) {

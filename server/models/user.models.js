@@ -19,7 +19,7 @@ async function signup(res, username, password) {
     const uuid = uuidv4();
     await query(
       "INSERT INTO users (username, password, uuid) VALUES (?, ?, ?)",
-      [username, password, uuid]
+      [username, hash, uuid]
     );
     return res.send({
       success: true,
@@ -27,10 +27,11 @@ async function signup(res, username, password) {
       data: "Signed Up!",
     });
   } catch (e) {
+    console.log(e);
     return res.send({
       success: false,
       data: null,
-      error: "Something went wrong, please try again later!",
+      error: "Something went wrong, please try again",
     });
   }
 }
