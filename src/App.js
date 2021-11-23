@@ -10,6 +10,8 @@ import ProtectedRoutes from "./components/ProtectedRoutes";
 import Menu from "./components/Menu";
 import LoginPage from "./components/LoginPage";
 import Signup from "./components/Signup";
+import HomePage from "./components/HomePage";
+import Snake from "./components/Snake";
 
 function App() {
   return (
@@ -21,6 +23,12 @@ function App() {
         </ProtectedRoutes>
         <ProtectedRoutes armor={false} path="/login">
           <LoginPage />
+        </ProtectedRoutes>
+        <ProtectedRoutes armor={true} path={"/home"}>
+          <HomePage />
+        </ProtectedRoutes>
+        <ProtectedRoutes armor={true} path={"/snake"}>
+          <Snake />
         </ProtectedRoutes>
         <Route path="*">
           <Redirect to="/login" />
